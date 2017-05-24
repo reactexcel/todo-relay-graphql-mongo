@@ -8,7 +8,7 @@ export default new GraphQLObjectType({
             type: GraphQLString,
         },
         completed: {
-            type: GraphQLString,
+            type: GraphQLBoolean
         }
     })
 })

@@ -2,11 +2,11 @@ function getTodoList(){
   return [
     {
       title: 'one',
-      completed: 'true'
+      completed: false
     },
     {
       title: 'two',
-      completed: 'true'
+      completed: true
     }
   ] 
   

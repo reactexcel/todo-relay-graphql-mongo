@@ -6,10 +6,8 @@ export default {
   todoList: {
     type: new GraphQLList(Todo),
     resolve: async() => {
-        let aa = await todoCtrl.getTodoList();
-        console.log('*****aa********')
-        console.log( aa )
-        return aa;
+        let todosList = await todoCtrl.getTodoList();
+        return todosList;
     }
   }
 };

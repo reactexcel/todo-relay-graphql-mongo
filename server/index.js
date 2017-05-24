@@ -9,6 +9,11 @@ import chalk from 'chalk';
 import webpackConfig from '../webpack.config';
 import config from './config/environment';
 import schema from './data/schema';
+import { connect } from './data/database';
+
+(async () => {
+  // Connect to mongoDB
+  await connect();
 
 if (config.env === 'development') {
   // Launch GraphQL
@@ -44,3 +49,5 @@ if (config.env === 'development') {
   relayServer.use('/graphql', graphQLHTTP({ schema }));
   relayServer.listen(config.port, () => console.log(chalk.green(`Relay is listening on port ${config.port}`)));
 }
+
+})();

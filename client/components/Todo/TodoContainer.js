@@ -6,6 +6,7 @@ export default Relay.createContainer(TodoComponent, {
     viewer: () => Relay.QL`
       fragment on Viewer {
         todoList{
+          _id
           title
           completed
         }

@@ -31,6 +31,8 @@ import {
   addFeature
 } from './database';
 
+import { TodoQuery } from './Todo';
+
 
 /**
  * We get the node interface and field from the Relay library.
@@ -145,14 +147,24 @@ const addFeatureMutation = mutationWithClientMutationId({
  * This is the type that will be the root of our query,
  * and the entry point into our schema.
  */
+
+const viewerType = new GraphQLObjectType({
+  name: 'Viewer',
+  fields: () => ({
+    ...TodoQuery
+  })
+});
+
+
+
 const queryType = new GraphQLObjectType({
   name: 'Query',
   fields: () => ({
     node: nodeField,
     // Add your own root fields here
     viewer: {
-      type: userType,
-      resolve: () => getUser(1)
+      type: viewerType,
+      resolve: () => ({})
     }
   })
 });

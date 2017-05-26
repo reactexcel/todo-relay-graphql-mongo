@@ -31,7 +31,7 @@ import {
   addFeature
 } from './database';
 
-import { TodoQuery } from './Todo';
+import { TodoQuery, AddTodo } from './Todo';
 
 
 /**
@@ -176,7 +176,8 @@ const queryType = new GraphQLObjectType({
 const mutationType = new GraphQLObjectType({
   name: 'Mutation',
   fields: () => ({
-    addFeature: addFeatureMutation
+    addFeature: addFeatureMutation,
+    addTodo: AddTodo
     // Add your own mutations here
   })
 });

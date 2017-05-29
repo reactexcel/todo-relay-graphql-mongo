@@ -1,6 +1,6 @@
 import { db } from '../../database'
 
-function addTodo( args ){
+let addTodo = ( args ) => {
   return new Promise((resolve, reject)=>{
     let newTodo = {
       title: args.title,
@@ -17,7 +17,19 @@ function addTodo( args ){
   })
 }
 
-function getTodoList(){
+let deleteTodo = ( args ) => {
+  return new Promise(( resolve, reject )=>{
+    db.todo.findByIdAndRemove(args.id, (err) => {
+      if( err ){
+        reject( err )
+      }else{
+        resolve( true )
+      }
+    })
+  })
+}
+
+let getTodoList = () => {
   return new Promise(( resolve, reject )=>{
     db.todo.find({}).exec((err, todos ) => {
       if( err ){
@@ -26,22 +38,11 @@ function getTodoList(){
         resolve( todos )
       }
     })
-  })
-  // return [
-  //   {
-  //     title: 'one',
-  //     completed: false
-  //   },
-  //   {
-  //     title: 'two',
-  //     completed: true
-  //   }
-  // ]  
+  })  
 }
-
-
 
 export{
   getTodoList,
-  addTodo
+  addTodo,
+  deleteTodo
 }

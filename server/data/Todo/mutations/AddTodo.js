@@ -1,6 +1,5 @@
 import { GraphQLString, GraphQLList, GraphQLBoolean } from 'graphql';
 import { mutationWithClientMutationId } from 'graphql-relay';
-//import ServiceBookingType from '../../ServiceBooking/types/ServiceBooking';
 import * as todoCtrl from '../controllers/Todo';
 import TodoType from '../types/Todo';
 

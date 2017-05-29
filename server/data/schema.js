@@ -31,7 +31,7 @@ import {
   addFeature
 } from './database';
 
-import { TodoQuery, AddTodo, DeleteTodo } from './Todo';
+import { TodoQuery, AddTodo, DeleteTodo, UpdateTodo } from './Todo';
 
 
 /**
@@ -178,7 +178,8 @@ const mutationType = new GraphQLObjectType({
   fields: () => ({
     addFeature: addFeatureMutation,
     addTodo: AddTodo,
-    deleteTodo: DeleteTodo
+    deleteTodo: DeleteTodo,
+    updateTodo: UpdateTodo
     // Add your own mutations here
   })
 });
